@@ -1,0 +1,44 @@
+name: Bitwarden Lite
+package: community.lazycat.app.bitwarden-lite
+version: 2025.12.0
+min_os_version: 1.3.8
+description: Bitwarden官方精简版本服务端
+homepage: https://github.com/bitwarden/self-host
+author: bitwarden
+application:
+  subdomain: bitwarden-lite
+
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://bitwarden-lite:8080
+
+services:
+  bitwarden-lite:
+    # ghcr.io/bitwarden/lite:2025.12.0
+    image: registry.lazycat.cloud/czyt/bitwarden/lite:a1e4b101eaabbb73
+    environment:
+      - BW_DOMAIN={{.S.AppDomain }}
+      - BW_DB_PROVIDER=sqlite
+      - BW_DB_FILE=/etc/bitwarden/bitwarden.db
+      #  Get your ID and key from https://bitwarden.com/host/
+      - BW_INSTALLATION_ID={{.U.bw_installation_id}}
+      - BW_INSTALLATION_KEY={{.U.bw_installation_key}}
+
+      - globalSettings__mail__replyToEmail={{.U.reply_to_email}}
+      - globalSettings__mail__smtp__host={{.U.smtp_host}}
+      - globalSettings__mail__smtp__port={{.U.smtp_port}}
+      - globalSettings__mail__smtp__ssl={{.U.smtp_ssl}}
+      - globalSettings__mail__smtp__username={{.U.username}}
+      - globalSettings__mail__smtp__password={{.U.password}}
+    binds:
+      - /lzcapp/var/data:/etc/bitwarden
+
+locales:
+  zh:
+    name: "Bitwarden Lite"
+    description: "Bitwarden官方精简版本服务端"
+  en:
+    name: "Bitwarden Lite"
+    description: "Bitwarden official lite version server"

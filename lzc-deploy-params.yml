@@ -1,0 +1,80 @@
+params:
+  - id: bw_installation_id
+    type: string
+    name: "Bitwarden Installation ID"
+    description: "Bitwarden Installation ID,Get your ID and key from https://bitwarden.com/host/"
+
+  - id: bw_installation_key
+    type: string
+    name: "Bitwarden Installation Key"
+    description: "Bitwarden Installation Key,Get your ID and key from https://bitwarden.com/host/"
+
+  - id: reply_to_email
+    type: string
+    name: "Reply-To Email"
+    description: "Enter the reply email for your server"
+    optional: true
+
+  - id: smtp_host
+    type: string
+    name: "SMTP Host"
+    description: "Enter host domain for your SMTP server"
+    optional: true
+
+  - id: smtp_port
+    type: number
+    name: "SMTP Port"
+    description: "Enter the port number from the SMTP host"
+    default_value: 587
+
+  - id: smtp_ssl
+    type: bool
+    name: "SMTP SSL"
+    description: "If your SMTP host uses SSL enter true. Set value to false if your host uses TLS service"
+    default_value: true
+
+  - id: username
+    type: string
+    name: "SMTP Username"
+    description: "Enter the SMTP username"
+    optional: true
+
+  - id: password
+    type: password
+    name: "SMTP Password"
+    description: "Enter the SMTP password"
+    optional: true
+
+locales:
+  zh:
+    bw_installation_id:
+      name: "Bitwarden 安装 ID"
+      description: "Bitwarden 安装 ID,请从https://bitwarden.com/host/获取您的安装id和安装密钥"
+
+    bw_installation_key:
+      name: "Bitwarden 安装密钥"
+      description: "Bitwarden 安装密钥，从https://bitwarden.com/host/获取您的安装id和安装密钥"
+
+    reply_to_email:
+      name: "回复邮箱地址"
+      description: "输入服务器的回复邮箱地址"
+
+    smtp_host:
+      name: "SMTP 主机"
+      description: "输入 SMTP 服务器的主机域名"
+
+    smtp_port:
+      name: "SMTP 端口"
+      description: "输入 SMTP 主机的端口号"
+
+    smtp_ssl:
+      name: "SMTP SSL"
+      description: "如果您的 SMTP 主机使用 SSL，请输入 true。如果主机使用 TLS 服务，请设置为 false"
+
+    username:
+      name: "SMTP 用户名"
+      description: "输入 SMTP 用户名"
+
+    password:
+      name: "SMTP 密码"
+      description: "输入 SMTP 密码"
