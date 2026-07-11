@@ -5,11 +5,11 @@ application:
   upstreams:
     - location: /
       backend: http://bitwarden-lite:8080
-
 services:
   bitwarden-lite:
     # ghcr.io/bitwarden/lite:2025.12.0
-    image: registry.lazycat.cloud/czyt/bitwarden/lite:a1e4b101eaabbb73
+    # upstream: ghcr.io/bitwarden/lite:2026.6.2
+    image: registry.lazycat.cloud/czyt/bitwarden/lite:4b73df3fa233d2e0
     environment:
       - BW_DOMAIN={{.S.AppDomain }}
       - BW_DB_PROVIDER=sqlite
