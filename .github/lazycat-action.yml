@@ -1,0 +1,44 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/bitwarden-lite.lpk
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: bitwarden-lite
+
+build:
+  run_buildscript: false
+
+images:
+  - id: bitwarden-lite
+    target: service
+    service: bitwarden-lite
+    source: ghcr.io/bitwarden/lite
+    channel: stable
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    application:
+      language: zh
+      name: Bitwarden Lite
+      source: https://github.com/bitwarden/self-host
+      source_author: bitwarden
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Bitwarden Lite
+    summary: Bitwarden 官方精简服务端的 LazyCat 自动构建版本
