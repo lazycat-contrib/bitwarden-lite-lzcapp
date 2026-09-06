@@ -8,8 +8,8 @@ application:
 services:
   bitwarden-lite:
     # ghcr.io/bitwarden/lite:2025.12.0
-    # upstream: ghcr.io/bitwarden/lite:2026.8.0
-    image: registry.lazycat.cloud/czyt/bitwarden/lite:5579b717cd1572f6
+    # upstream: ghcr.io/bitwarden/lite:2026.8.1
+    image: registry.lazycat.cloud/czyt/bitwarden/lite:24bb589abf54f1fd
     environment:
       - BW_DOMAIN={{.S.AppDomain }}
       - BW_DB_PROVIDER=sqlite
