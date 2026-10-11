@@ -1,4 +1,5 @@
 package: community.lazycat.app.bitwarden-lite
+license: GPL-3.0
 version: 2026.9.2
 name: Bitwarden Lite
 description: Bitwarden 官方精简版本服务端
